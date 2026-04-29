@@ -302,7 +302,7 @@ const css = `
 body { background: #0a0a0a; }
 .app { display: flex; min-height: 100vh; font-family: 'Syne', sans-serif; background: #0a0a0a; color: #e8e3da; }
 .sidebar { width: 220px; min-width: 220px; background: #0d0d0d; border-right: 1px solid #1a1a1a; display: flex; flex-direction: column; padding: 1.5rem 0; position: sticky; top: 0; height: 100vh; }
-.sidebar-logo { font-size: 20px; font-weight: 800; letter-spacing: -1px; padding: 0 1.25rem 1.5rem; color: #e8e3da; border-bottom: 1px solid #1a1a1a; margin-bottom: 1rem; }
+.sidebar-logo { font-size: 15px; font-weight: 800; letter-spacing: -1px; padding: 0 1.25rem 1.5rem; color: #e8e3da; border-bottom: 1px solid #1a1a1a; margin-bottom: 1rem; }
 .sidebar-logo span { color: #c8f55a; }
 .nav { display: flex; flex-direction: column; gap: 2px; padding: 0 0.5rem; flex: 1; }
 .nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 8px; border: none; background: none; color: #555; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; text-align: left; transition: all 0.15s; }
