@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
  title: "FreelanceFLOW",
  description: "Panel dla freelancerów — oferty, faktury, klienci i projekty w jednym miejscu.",
+ icons: {
+  icon: "/icon.svg",
+},
 };
 
 export default function RootLayout({
