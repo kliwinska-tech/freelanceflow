@@ -315,12 +315,12 @@ body { background: #0a0a0a; }
 .nav-icon { display: flex; align-items: center; opacity: 0.8; }
 .sidebar-foot { padding: 1rem 1.25rem 0; border-top: 1px solid #1a1a1a; }
 .content { flex: 1; overflow-y: auto; }
-.page { padding: 2rem 2.5rem; max-width: 1100px; }
+.page { padding: 2rem 2.5rem; max-width: 100%; }
 .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem; }
 .page-title { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
 .stat-card { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 1.25rem; position: relative; overflow: hidden; }
-.stat-value { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+.stat-value { font-size: 32px; font-weight: 700; margin-bottom: 6px; }
 .stat-label { font-size: 11px; color: #555; }
 .stat-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); }
 .dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -374,4 +374,4 @@ select.inp option { background: #141414; }
 .light .bottom-nav { background: #ffffff; border-color: #e0e0e0; }
 .light .bottom-nav-item { color: #aaa; }
 .light .sidebar-logo { color: #1a1a1a; }
-.light .text-muted { color: #999; }`;
+.light .text-muted { color: #999; }`;ss
