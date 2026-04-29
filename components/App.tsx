@@ -36,6 +36,7 @@ const TABS = [
 
 export default function App() {
   const [tab, setTab] = useState("dashboard");
+  const [darkMode, setDarkMode] = useState(true);
   const [klienci, setKlienci] = useLocalState("fp_klienci", []);
   const [projekty, setProjekty] = useLocalState("fp_projekty", []);
   const [faktury, setFaktury] = useLocalState("fp_faktury", []);
@@ -44,7 +45,7 @@ export default function App() {
     <>
       <link rel="stylesheet" href={FONT} />
       <style>{css}</style>
-      <div className="app">
+      <div className={`app ${darkMode ? "dark" : "light"}`}>
         <aside className="sidebar">
           <div className="sidebar-logo">freelance<span>FLOW</span></div>
           <nav className="nav">
@@ -55,6 +56,9 @@ export default function App() {
               </button>
             ))}
           </nav>
+          <button className="btn-ghost" style={{ margin: "0 0.5rem 1rem", width: "calc(100% - 1rem)" }} onClick={() => setDarkMode(!darkMode)}>
+          { darkMode ? "☀️ Jasny tryb" : "🌙 Ciemny tryb"}
+          </button>
           <div className="sidebar-foot"><div className="mono" style={{ color: "#444", fontSize: 11 }}>v1.0 · beta</div></div>
         </aside>
         <main className="content">
@@ -358,4 +362,16 @@ select.inp option { background: #141414; }
 .bottom-nav-label { font-size: 10px; font-weight: 500; }
 @media (max-width: 900px) { .stats-grid { grid-template-columns: 1fr 1fr; } .dash-grid, .two-col { grid-template-columns: 1fr; } .page { padding: 1.5rem 1.25rem; } }
 @media (max-width: 600px) { .sidebar { display: none; } .content { padding-bottom: 70px; } .bottom-nav { display: flex; } }
-`;
+.light { background: #f5f5f5; color: #1a1a1a; }
+.light .sidebar { background: #ffffff; border-color: #e0e0e0; }
+.light .nav-item { color: #888; }
+.light .nav-item:hover { background: #f0f0f0; color: #1a1a1a; }
+.light .nav-item.active { color: #5a8a1a; background: rgba(90,138,26,0.08); }
+.light .card { background: #ffffff; border-color: #e0e0e0; }
+.light .inp { background: #f9f9f9; border-color: #e0e0e0; color: #1a1a1a; }
+.light .preview-box { background: #f9f9f9; border-color: #e0e0e0; color: #444; }
+.light .stat-card { background: #ffffff; border-color: #e0e0e0; }
+.light .bottom-nav { background: #ffffff; border-color: #e0e0e0; }
+.light .bottom-nav-item { color: #aaa; }
+.light .sidebar-logo { color: #1a1a1a; }
+.light .text-muted { color: #999; }`;
