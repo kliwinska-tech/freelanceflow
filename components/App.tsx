@@ -374,4 +374,4 @@ select.inp option { background: #141414; }
 .light .bottom-nav { background: #ffffff; border-color: #e0e0e0; }
 .light .bottom-nav-item { color: #aaa; }
 .light .sidebar-logo { color: #1a1a1a; }
-.light .text-muted { color: #999; }`;ss
+.light .text-muted { color: #999; }`;
