@@ -39,6 +39,18 @@ const TABS = [
 
 export default function App() {
   const [tab, setTab] = useState("dashboard");
+  const [user, setUser] = useState<any>(null);
+
+useEffect(() => {
+  supabase.auth.getSession().then(({ data }) => {
+    setUser(data.session?.user ?? null);
+  });
+  supabase.auth.onAuthStateChange((_event, session) => {
+    setUser(session?.user ?? null);
+  });
+}, []);
+
+if (!user) return <Auth />;
   const [darkMode, setDarkMode] = useState(true);
   const [klienci, setKlienci] = useLocalState("fp_klienci", []);
   const [projekty, setProjekty] = useLocalState("fp_projekty", []);
