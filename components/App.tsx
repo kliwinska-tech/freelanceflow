@@ -50,11 +50,11 @@ useEffect(() => {
   });
 }, []);
 
-if (!user) return <Auth />;
   const [darkMode, setDarkMode] = useState(true);
   const [klienci, setKlienci] = useLocalState("fp_klienci", []);
   const [projekty, setProjekty] = useLocalState("fp_projekty", []);
   const [faktury, setFaktury] = useLocalState("fp_faktury", []);
+  if (!user) return <Auth />;
 
   return (
     <>
