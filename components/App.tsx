@@ -46,7 +46,7 @@ export default function App() {
       <style>{css}</style>
       <div className="app">
         <aside className="sidebar">
-          <div className="sidebar-logo">freelance<span>OS</span></div>
+          <div className="sidebar-logo">freelance<span>FLOW</span></div>
           <nav className="nav">
             {TABS.map(t => (
               <button key={t.id} className={`nav-item ${tab === t.id ? "active" : ""}`} onClick={() => setTab(t.id)}>
