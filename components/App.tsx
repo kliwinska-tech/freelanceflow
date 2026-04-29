@@ -139,7 +139,7 @@ function GeneratorOfert({ klienci }: any) {
     const prompt = `Napisz profesjonalną ofertę handlową w języku ${jezyk}.\n\nDane:\n- Wystawca: ${firma || "Freelancer"}\n- Klient: ${klient || "Klient"}\n- Opis usługi: ${opis}\n${budzet ? `- Budżet: ${budzet} zł\n` : ""}${czas ? `- Czas realizacji: ${czas}\n` : ""}\nOferta powinna zawierać: krótkie wprowadzenie, zakres prac (lista), harmonogram, cenę i warunki płatności, oraz profesjonalne zakończenie. Używaj konkretnego języka, bez lania wody. Maksymalnie 400 słów.`;
     try {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST", headers: { "Content-Type": "application/json" },
+       method: "POST", headers: { "Content-Type": "application/json", "x-api-key": process.env.NEXT_PUBLIC_ANTHROPIC_API_KEY || "", "anthropic-version": "2023-06-01" },
         body: JSON.stringify({ model: "claude-sonnet-4-20250514", max_tokens: 1000, messages: [{ role: "user", content: prompt }] }),
       });
       const data = await res.json();
