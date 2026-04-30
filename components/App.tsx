@@ -107,8 +107,6 @@ function Dashboard({ klienci, projekty, faktury }: any) {
         <div className="mono text-muted">{new Date().toLocaleDateString("pl-PL", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</div>
       </div>
       <div className="stats-grid">
-        <StatCard label="Przychód (opłacone)" value={fmt(totalPrzychod)} accent="#c8f55a" />
-        <StatCard label="Oczekujące płatności" value={fmt(oczekujace)} accent="#f5a623" />
         <StatCard label="Aktywne projekty" value={aktywne} accent="#5ab4f5" />
         <StatCard label="Klienci" value={klienci.length} accent="#c85af5" />
       </div>
