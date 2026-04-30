@@ -1,4 +1,5 @@
 "use client";
+import { translations, Lang } from "../lib/translations";
 import { useEffect, useState as useStateReact } from "react";
 import { supabase } from "../lib/supabase";
 import Auth from "./Auth";
@@ -51,6 +52,8 @@ useEffect(() => {
 }, []);
 
   const [darkMode, setDarkMode] = useState(true);
+  const [lang, setLang] = useLocalState("fp_lang", "pl");
+  const t = translations[lang as Lang];
   const [klienci, setKlienci] = useLocalState("fp_klienci", []);
   const [projekty, setProjekty] = useLocalState("fp_projekty", []);
   const [faktury, setFaktury] = useLocalState("fp_faktury", []);
