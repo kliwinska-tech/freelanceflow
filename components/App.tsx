@@ -73,7 +73,7 @@ useEffect(() => {
               </button>
             ))}
           </nav>
-          <button className="btn-ghost" style={{ margin: "0 0.5rem 1rem", width: "calc(100% - 1rem)" }} onClick={() => setDarkMode(!darkMode)}>
+<button className="btn-ghost" style={{ margin: "0 0.5rem 1rem", width: "calc(100% - 1rem)" }} onClick={() => setDarkMode(!darkMode)}>
           { darkMode ? "☀️ Jasny tryb" : "🌙 Ciemny tryb"}
           </button>
           <div className="sidebar-foot">
@@ -105,13 +105,21 @@ useEffect(() => {
           {tab === "projekty" && <Projekty projekty={projekty} setProjekty={setProjekty} klienci={klienci} />}
           {tab === "faktury" && <Faktury faktury={faktury} setFaktury={setFaktury} klienci={klienci} projekty={projekty} />}
         </main>
-        <nav className="bottom-nav">
-          {TABS.map(t => (
-            <button key={t.id} className={`bottom-nav-item ${tab === t.id ? "active" : ""}`} onClick={() => setTab(t.id)}>
-              <span className="bottom-nav-icon">{t.icon}</span>
-              <span className="bottom-nav-label">{t.label === "Generator ofert" ? "Oferty" : t.label}</span>
-            </button>
-          ))}
+<nav className="bottom-nav">
+  {TABS.map(t => (
+    <button key={t.id} className={`bottom-nav-item ${tab === t.id ? "active" : ""}`} onClick={() => setTab(t.id)}>
+      <span className="bottom-nav-icon">{t.icon}</span>
+      <span className="bottom-nav-label">{t.label === "Generator ofert" ? "Oferty" : t.label}</span>
+    </button>
+  ))}
+  <button className="bottom-nav-item" onClick={() => setDarkMode(!darkMode)}>
+    <span className="bottom-nav-icon">{darkMode ? "☀️" : "🌙"}</span>
+    <span className="bottom-nav-label">{darkMode ? "Jasny" : "Ciemny"}</span>
+  </button>
+  <button className="bottom-nav-item" onClick={() => supabase.auth.signOut()}>
+    <span className="bottom-nav-icon">🚪</span>
+    <span className="bottom-nav-label">Wyloguj</span>
+          </button>
         </nav>
       </div>
     </>
