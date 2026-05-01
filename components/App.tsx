@@ -115,6 +115,18 @@ useEffect(() => {
   <button className="bottom-nav-item" onClick={() => setDarkMode(!darkMode)}>
     <span className="bottom-nav-icon">{darkMode ? "☀️" : "🌙"}</span>
     <span className="bottom-nav-label">{darkMode ? "Jasny" : "Ciemny"}</span>
+    <select className="bottom-nav-item" style={{ border: "none", background: "none", color: "#444", fontSize: 10, cursor: "pointer", fontFamily: "Syne, sans-serif" }} value={lang} onChange={e => setLang(e.target.value)}>
+  <option value="pl">🇵🇱</option>
+  <option value="en">🇬🇧</option>
+  <option value="de">🇩🇪</option>
+  <option value="fr">🇫🇷</option>
+  <option value="es">🇪🇸</option>
+  <option value="pt">🇵🇹</option>
+  <option value="it">🇮🇹</option>
+  <option value="nl">🇳🇱</option>
+  <option value="ru">🇷🇺</option>
+  <option value="uk">🇺🇦</option>
+</select>
   </button>
   <button className="bottom-nav-item" onClick={() => supabase.auth.signOut()}>
     <span className="bottom-nav-icon">🚪</span>
