@@ -5,7 +5,6 @@ import Auth from "./Auth";
 
 const FONT = "https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap";
 
-// ───────────── TRANSLATIONS ─────────────
 const translations: Record<string, any> = {
   pl: {
     dashboard: "Pulpit", clients: "Klienci", projects: "Projekty", invoices: "Faktury", offerGenerator: "Generator ofert",
@@ -15,16 +14,15 @@ const translations: Record<string, any> = {
     addClient: "+ Dodaj klienta", newProject: "+ Nowy projekt", newInvoice: "+ Nowa faktura",
     cancel: "Anuluj", save: "Zapisz", delete: "Usuń",
     name: "Nazwa", email: "Email", phone: "Telefon", notes: "Notatki", added: "Dodano",
-    projectName: "Nazwa projektu", client: "Klient", deadline: "Deadline", budget: "Budżet (zł)", description: "Opis",
+    projectName: "Nazwa projektu", client: "Klient", deadline: "Deadline", budget: "Budżet", description: "Opis",
     status: "Status", inProgress: "w toku", paused: "wstrzymany", finished: "zakończony",
-    invoiceNumber: "Numer", amount: "Kwota (zł)", paymentDeadline: "Termin płatności", serviceDesc: "Opis usługi",
+    invoiceNumber: "Numer", amount: "Kwota", paymentDeadline: "Termin płatności", serviceDesc: "Opis usługi",
     draft: "szkic", sent: "wysłana", paid: "opłacona",
     generateOffer: "Generuj ofertę →", generating: "Generuję...", result: "Wynik", copy: "Kopiuj", copied: "Skopiowano",
     yourCompany: "Twoja firma / imię", clientField: "Klient", projectDesc: "Opis projektu *", time: "Czas realizacji",
-    language: "Język", connectionError: "Błąd połączenia.", enterDesc: "Wpisz opis projektu!",
-    offerPlaceholder: "Tutaj pojawi się oferta...",
-    choose: "— wybierz —", select: "— wybierz —",
-    overdue: "⚠ deadline:",
+    connectionError: "Błąd połączenia.", enterDesc: "Wpisz opis projektu!",
+    offerPlaceholder: "Tutaj pojawi się oferta...", choose: "— wybierz —", overdue: "⚠ deadline:",
+    loading: "Ładowanie...",
   },
   en: {
     dashboard: "Dashboard", clients: "Clients", projects: "Projects", invoices: "Invoices", offerGenerator: "Offer Generator",
@@ -40,10 +38,9 @@ const translations: Record<string, any> = {
     draft: "draft", sent: "sent", paid: "paid",
     generateOffer: "Generate offer →", generating: "Generating...", result: "Result", copy: "Copy", copied: "Copied",
     yourCompany: "Your company / name", clientField: "Client", projectDesc: "Project description *", time: "Timeline",
-    language: "Language", connectionError: "Connection error.", enterDesc: "Enter project description!",
-    offerPlaceholder: "Your offer will appear here...",
-    choose: "— choose —", select: "— select —",
-    overdue: "⚠ deadline:",
+    connectionError: "Connection error.", enterDesc: "Enter project description!",
+    offerPlaceholder: "Your offer will appear here...", choose: "— choose —", overdue: "⚠ deadline:",
+    loading: "Loading...",
   },
   de: {
     dashboard: "Übersicht", clients: "Kunden", projects: "Projekte", invoices: "Rechnungen", offerGenerator: "Angebotsgenerator",
@@ -59,10 +56,9 @@ const translations: Record<string, any> = {
     draft: "Entwurf", sent: "Gesendet", paid: "Bezahlt",
     generateOffer: "Angebot erstellen →", generating: "Erstelle...", result: "Ergebnis", copy: "Kopieren", copied: "Kopiert",
     yourCompany: "Ihre Firma / Name", clientField: "Kunde", projectDesc: "Projektbeschreibung *", time: "Zeitplan",
-    language: "Sprache", connectionError: "Verbindungsfehler.", enterDesc: "Projektbeschreibung eingeben!",
-    offerPlaceholder: "Ihr Angebot erscheint hier...",
-    choose: "— wählen —", select: "— wählen —",
-    overdue: "⚠ Frist:",
+    connectionError: "Verbindungsfehler.", enterDesc: "Projektbeschreibung eingeben!",
+    offerPlaceholder: "Ihr Angebot erscheint hier...", choose: "— wählen —", overdue: "⚠ Frist:",
+    loading: "Laden...",
   },
   fr: {
     dashboard: "Tableau de bord", clients: "Clients", projects: "Projets", invoices: "Factures", offerGenerator: "Générateur d'offres",
@@ -78,10 +74,9 @@ const translations: Record<string, any> = {
     draft: "brouillon", sent: "envoyée", paid: "payée",
     generateOffer: "Générer l'offre →", generating: "Génération...", result: "Résultat", copy: "Copier", copied: "Copié",
     yourCompany: "Votre entreprise / nom", clientField: "Client", projectDesc: "Description du projet *", time: "Délai",
-    language: "Langue", connectionError: "Erreur de connexion.", enterDesc: "Entrez la description du projet!",
-    offerPlaceholder: "Votre offre apparaîtra ici...",
-    choose: "— choisir —", select: "— choisir —",
-    overdue: "⚠ échéance:",
+    connectionError: "Erreur de connexion.", enterDesc: "Entrez la description du projet!",
+    offerPlaceholder: "Votre offre apparaîtra ici...", choose: "— choisir —", overdue: "⚠ échéance:",
+    loading: "Chargement...",
   },
   es: {
     dashboard: "Panel", clients: "Clientes", projects: "Proyectos", invoices: "Facturas", offerGenerator: "Generador de ofertas",
@@ -97,10 +92,9 @@ const translations: Record<string, any> = {
     draft: "borrador", sent: "enviada", paid: "pagada",
     generateOffer: "Generar oferta →", generating: "Generando...", result: "Resultado", copy: "Copiar", copied: "Copiado",
     yourCompany: "Su empresa / nombre", clientField: "Cliente", projectDesc: "Descripción del proyecto *", time: "Plazo",
-    language: "Idioma", connectionError: "Error de conexión.", enterDesc: "¡Ingrese la descripción del proyecto!",
-    offerPlaceholder: "Su oferta aparecerá aquí...",
-    choose: "— elegir —", select: "— elegir —",
-    overdue: "⚠ fecha límite:",
+    connectionError: "Error de conexión.", enterDesc: "¡Ingrese la descripción del proyecto!",
+    offerPlaceholder: "Su oferta aparecerá aquí...", choose: "— elegir —", overdue: "⚠ fecha límite:",
+    loading: "Cargando...",
   },
   pt: {
     dashboard: "Painel", clients: "Clientes", projects: "Projetos", invoices: "Faturas", offerGenerator: "Gerador de ofertas",
@@ -116,10 +110,9 @@ const translations: Record<string, any> = {
     draft: "rascunho", sent: "enviada", paid: "paga",
     generateOffer: "Gerar oferta →", generating: "Gerando...", result: "Resultado", copy: "Copiar", copied: "Copiado",
     yourCompany: "Sua empresa / nome", clientField: "Cliente", projectDesc: "Descrição do projeto *", time: "Prazo",
-    language: "Idioma", connectionError: "Erro de conexão.", enterDesc: "Digite a descrição do projeto!",
-    offerPlaceholder: "Sua oferta aparecerá aqui...",
-    choose: "— escolher —", select: "— escolher —",
-    overdue: "⚠ prazo:",
+    connectionError: "Erro de conexão.", enterDesc: "Digite a descrição do projeto!",
+    offerPlaceholder: "Sua oferta aparecerá aqui...", choose: "— escolher —", overdue: "⚠ prazo:",
+    loading: "Carregando...",
   },
   it: {
     dashboard: "Pannello", clients: "Clienti", projects: "Progetti", invoices: "Fatture", offerGenerator: "Generatore di offerte",
@@ -135,10 +128,9 @@ const translations: Record<string, any> = {
     draft: "bozza", sent: "inviata", paid: "pagata",
     generateOffer: "Genera offerta →", generating: "Generazione...", result: "Risultato", copy: "Copia", copied: "Copiato",
     yourCompany: "La tua azienda / nome", clientField: "Cliente", projectDesc: "Descrizione progetto *", time: "Tempistica",
-    language: "Lingua", connectionError: "Errore di connessione.", enterDesc: "Inserisci la descrizione del progetto!",
-    offerPlaceholder: "La tua offerta apparirà qui...",
-    choose: "— scegli —", select: "— scegli —",
-    overdue: "⚠ scadenza:",
+    connectionError: "Errore di connessione.", enterDesc: "Inserisci la descrizione del progetto!",
+    offerPlaceholder: "La tua offerta apparirà qui...", choose: "— scegli —", overdue: "⚠ scadenza:",
+    loading: "Caricamento...",
   },
   nl: {
     dashboard: "Dashboard", clients: "Klanten", projects: "Projecten", invoices: "Facturen", offerGenerator: "Offertemaker",
@@ -154,10 +146,9 @@ const translations: Record<string, any> = {
     draft: "concept", sent: "verzonden", paid: "betaald",
     generateOffer: "Offerte genereren →", generating: "Genereren...", result: "Resultaat", copy: "Kopiëren", copied: "Gekopieerd",
     yourCompany: "Uw bedrijf / naam", clientField: "Klant", projectDesc: "Projectbeschrijving *", time: "Tijdlijn",
-    language: "Taal", connectionError: "Verbindingsfout.", enterDesc: "Voer projectbeschrijving in!",
-    offerPlaceholder: "Uw offerte verschijnt hier...",
-    choose: "— kiezen —", select: "— kiezen —",
-    overdue: "⚠ deadline:",
+    connectionError: "Verbindingsfout.", enterDesc: "Voer projectbeschrijving in!",
+    offerPlaceholder: "Uw offerte verschijnt hier...", choose: "— kiezen —", overdue: "⚠ deadline:",
+    loading: "Laden...",
   },
   ru: {
     dashboard: "Панель", clients: "Клиенты", projects: "Проекты", invoices: "Счета", offerGenerator: "Генератор предложений",
@@ -173,10 +164,9 @@ const translations: Record<string, any> = {
     draft: "черновик", sent: "отправлен", paid: "оплачен",
     generateOffer: "Создать предложение →", generating: "Создаю...", result: "Результат", copy: "Копировать", copied: "Скопировано",
     yourCompany: "Ваша компания / имя", clientField: "Клиент", projectDesc: "Описание проекта *", time: "Сроки",
-    language: "Язык", connectionError: "Ошибка подключения.", enterDesc: "Введите описание проекта!",
-    offerPlaceholder: "Здесь появится ваше предложение...",
-    choose: "— выбрать —", select: "— выбрать —",
-    overdue: "⚠ срок:",
+    connectionError: "Ошибка подключения.", enterDesc: "Введите описание проекта!",
+    offerPlaceholder: "Здесь появится ваше предложение...", choose: "— выбрать —", overdue: "⚠ срок:",
+    loading: "Загрузка...",
   },
   uk: {
     dashboard: "Панель", clients: "Клієнти", projects: "Проєкти", invoices: "Рахунки", offerGenerator: "Генератор пропозицій",
@@ -192,26 +182,20 @@ const translations: Record<string, any> = {
     draft: "чернетка", sent: "надіслано", paid: "оплачено",
     generateOffer: "Створити пропозицію →", generating: "Створюю...", result: "Результат", copy: "Копіювати", copied: "Скопійовано",
     yourCompany: "Ваша компанія / ім'я", clientField: "Клієнт", projectDesc: "Опис проєкту *", time: "Терміни",
-    language: "Мова", connectionError: "Помилка підключення.", enterDesc: "Введіть опис проєкту!",
-    offerPlaceholder: "Тут з'явиться ваша пропозиція...",
-    choose: "— обрати —", select: "— обрати —",
-    overdue: "⚠ дедлайн:",
+    connectionError: "Помилка підключення.", enterDesc: "Введіть опис проєкту!",
+    offerPlaceholder: "Тут з'явиться ваша пропозиція...", choose: "— обрати —", overdue: "⚠ дедлайн:",
+    loading: "Завантаження...",
   },
 };
 
-// ───────────── STORAGE HELPERS ─────────────
 function useLocalState(key: string, initial: any) {
   const [val, setVal] = useState(() => {
     try { const s = localStorage.getItem(key); return s ? JSON.parse(s) : initial; } catch { return initial; }
   });
-  function set(v: any) {
-    setVal(v);
-    try { localStorage.setItem(key, JSON.stringify(v)); } catch {}
-  }
+  function set(v: any) { setVal(v); try { localStorage.setItem(key, JSON.stringify(v)); } catch {} }
   return [val, set];
 }
 
-function uid() { return Math.random().toString(36).slice(2, 9); }
 function today() { return new Date().toISOString().slice(0, 10); }
 function fmt(n: any) { return Number(n || 0).toLocaleString("pl-PL", { style: "currency", currency: "PLN", maximumFractionDigits: 0 }); }
 
@@ -228,9 +212,10 @@ export default function App() {
   const [user, setUser] = useState<any>(null);
   const [darkMode, setDarkMode] = useLocalState("fp_dark", true);
   const [lang, setLang] = useLocalState("fp_lang", "pl");
-  const [klienci, setKlienci] = useLocalState("fp_klienci", []);
-  const [projekty, setProjekty] = useLocalState("fp_projekty", []);
-  const [faktury, setFaktury] = useLocalState("fp_faktury", []);
+  const [klienci, setKlienci] = useState<any[]>([]);
+  const [projekty, setProjekty] = useState<any[]>([]);
+  const [faktury, setFaktury] = useState<any[]>([]);
+  const [loadingData, setLoadingData] = useState(true);
 
   const t = translations[lang] || translations.pl;
 
@@ -242,6 +227,21 @@ export default function App() {
       setUser(session?.user ?? null);
     });
   }, []);
+
+  useEffect(() => {
+    if (!user) return;
+    setLoadingData(true);
+    Promise.all([
+      supabase.from("klienci").select("*").eq("user_id", user.id).order("created_at", { ascending: false }),
+      supabase.from("projekty").select("*").eq("user_id", user.id).order("created_at", { ascending: false }),
+      supabase.from("faktury").select("*").eq("user_id", user.id).order("created_at", { ascending: false }),
+    ]).then(([k, p, f]) => {
+      setKlienci(k.data || []);
+      setProjekty(p.data || []);
+      setFaktury(f.data || []);
+      setLoadingData(false);
+    });
+  }, [user]);
 
   if (!user) return <Auth />;
 
@@ -269,7 +269,7 @@ export default function App() {
             ))}
           </nav>
           <div className="sidebar-foot">
-            <select className="inp" style={{ fontSize: 12, marginBottom: 8 }} value={lang} onChange={e => setLang(e.target.value)}>
+            <select className="inp" style={{ fontSize: 12, marginBottom: 4 }} value={lang} onChange={e => setLang(e.target.value)}>
               <option value="pl">🇵🇱 Polski</option>
               <option value="en">🇬🇧 English</option>
               <option value="de">🇩🇪 Deutsch</option>
@@ -281,21 +281,27 @@ export default function App() {
               <option value="ru">🇷🇺 Русский</option>
               <option value="uk">🇺🇦 Українська</option>
             </select>
-            <button className="btn-ghost" style={{ width: "100%", marginBottom: 8 }} onClick={() => setDarkMode(!darkMode)}>
+            <button className="btn-ghost" style={{ width: "100%", marginBottom: 4 }} onClick={() => setDarkMode(!darkMode)}>
               {darkMode ? "☀️ " + t.lightMode : "🌙 " + t.darkMode}
             </button>
-            <button className="btn-ghost" style={{ width: "100%", color: "#ff6b6b", marginBottom: 8 }} onClick={() => supabase.auth.signOut()}>
+            <button className="btn-ghost" style={{ width: "100%", color: "#ff6b6b" }} onClick={() => supabase.auth.signOut()}>
               {t.logout}
             </button>
-            <div className="mono" style={{ color: "#444", fontSize: 11 }}>v1.0 · beta</div>
+            <div className="mono" style={{ color: "#444", fontSize: 11, marginTop: 6 }}>v1.0 · beta</div>
           </div>
         </aside>
         <main className="content">
-          {tab === "dashboard" && <Dashboard klienci={klienci} projekty={projekty} faktury={faktury} t={t} />}
-          {tab === "oferta" && <GeneratorOfert klienci={klienci} t={t} lang={lang} />}
-          {tab === "klienci" && <Klienci klienci={klienci} setKlienci={setKlienci} t={t} />}
-          {tab === "projekty" && <Projekty projekty={projekty} setProjekty={setProjekty} klienci={klienci} t={t} />}
-          {tab === "faktury" && <Faktury faktury={faktury} setFaktury={setFaktury} klienci={klienci} projekty={projekty} t={t} />}
+          {loadingData ? (
+            <div style={{ padding: "4rem", textAlign: "center", color: "#555", fontFamily: "'DM Mono', monospace" }}>{t.loading}</div>
+          ) : (
+            <>
+              {tab === "dashboard" && <Dashboard klienci={klienci} projekty={projekty} faktury={faktury} t={t} />}
+              {tab === "oferta" && <GeneratorOfert klienci={klienci} t={t} lang={lang} />}
+              {tab === "klienci" && <Klienci klienci={klienci} setKlienci={setKlienci} user={user} t={t} />}
+              {tab === "projekty" && <Projekty projekty={projekty} setProjekty={setProjekty} klienci={klienci} user={user} t={t} />}
+              {tab === "faktury" && <Faktury faktury={faktury} setFaktury={setFaktury} klienci={klienci} projekty={projekty} user={user} t={t} />}
+            </>
+          )}
         </main>
         <nav className="bottom-nav">
           {TABS.map(tb => (
@@ -331,7 +337,7 @@ export default function App() {
 }
 
 function Dashboard({ klienci, projekty, faktury, t }: any) {
-  const aktywne = projekty.filter((p: any) => p.status === t.inProgress || p.status === "w toku" || p.status === "in progress").length;
+  const aktywne = projekty.filter((p: any) => p.status === "w toku" || p.status === "in progress" || p.status === "in Arbeit" || p.status === "en cours").length;
   return (
     <div className="page">
       <div className="page-header">
@@ -345,7 +351,7 @@ function Dashboard({ klienci, projekty, faktury, t }: any) {
       <div className="dash-grid">
         <div className="card">
           <div className="card-title">{t.recentProjects}</div>
-          {projekty.length === 0 ? <div className="empty">{t.noProjects}</div> : projekty.slice(-4).reverse().map((p: any) => (
+          {projekty.length === 0 ? <div className="empty">{t.noProjects}</div> : projekty.slice(0, 4).map((p: any) => (
             <div key={p.id} className="list-row">
               <span>{p.nazwa}</span>
               <span className="badge badge-green">{p.status}</span>
@@ -354,7 +360,7 @@ function Dashboard({ klienci, projekty, faktury, t }: any) {
         </div>
         <div className="card">
           <div className="card-title">{t.recentInvoices}</div>
-          {faktury.length === 0 ? <div className="empty">{t.noInvoices}</div> : faktury.slice(-4).reverse().map((f: any) => (
+          {faktury.length === 0 ? <div className="empty">{t.noInvoices}</div> : faktury.slice(0, 4).map((f: any) => (
             <div key={f.id} className="list-row">
               <span className="mono">{f.numer}</span>
               <span style={{ display: "flex", gap: 8, alignItems: "center" }}>
@@ -390,10 +396,12 @@ function GeneratorOfert({ klienci, t, lang }: any) {
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
 
+  const langNames: Record<string, string> = { pl: "Polish", en: "English", de: "German", fr: "French", es: "Spanish", pt: "Portuguese", it: "Italian", nl: "Dutch", ru: "Russian", uk: "Ukrainian" };
+
   async function generate() {
     if (!opis.trim()) { setError(t.enterDesc); return; }
     setError(""); setLoading(true); setOferta("");
-    const prompt = `Write a professional business offer in ${lang === "pl" ? "Polish" : lang === "de" ? "German" : lang === "fr" ? "French" : lang === "es" ? "Spanish" : lang === "pt" ? "Portuguese" : lang === "it" ? "Italian" : lang === "nl" ? "Dutch" : lang === "ru" ? "Russian" : lang === "uk" ? "Ukrainian" : "English"}.\n\nDetails:\n- From: ${firma || "Freelancer"}\n- Client: ${klient || "Client"}\n- Service: ${opis}\n${budzet ? `- Budget: ${budzet}\n` : ""}${czas ? `- Timeline: ${czas}\n` : ""}\nInclude: introduction, scope of work (list), timeline, price and payment terms, professional closing. Max 400 words.`;
+    const prompt = `Write a professional business offer in ${langNames[lang] || "English"}.\n\nDetails:\n- From: ${firma || "Freelancer"}\n- Client: ${klient || "Client"}\n- Service: ${opis}\n${budzet ? `- Budget: ${budzet}\n` : ""}${czas ? `- Timeline: ${czas}\n` : ""}\nInclude: introduction, scope of work (list), timeline, price and payment terms, professional closing. Max 400 words.`;
     try {
       const res = await fetch("/api/generate", {
         method: "POST", headers: { "Content-Type": "application/json" },
@@ -435,14 +443,22 @@ function GeneratorOfert({ klienci, t, lang }: any) {
   );
 }
 
-function Klienci({ klienci, setKlienci, t }: any) {
+function Klienci({ klienci, setKlienci, user, t }: any) {
   const [form, setForm] = useState({ nazwa: "", email: "", telefon: "", notatki: "" });
   const [show, setShow] = useState(false);
-  function add() {
+
+  async function add() {
     if (!form.nazwa.trim()) return;
-    setKlienci([...klienci, { ...form, id: uid(), data: today() }]);
+    const { data, error } = await supabase.from("klienci").insert({ ...form, user_id: user.id, data: today() }).select().single();
+    if (!error && data) setKlienci([data, ...klienci]);
     setForm({ nazwa: "", email: "", telefon: "", notatki: "" }); setShow(false);
   }
+
+  async function remove(id: string) {
+    await supabase.from("klienci").delete().eq("id", id);
+    setKlienci(klienci.filter((k: any) => k.id !== id));
+  }
+
   return (
     <div className="page">
       <div className="page-header"><h1 className="page-title">{t.clients}</h1><button className="btn-primary" onClick={() => setShow(!show)}>{show ? t.cancel : t.addClient}</button></div>
@@ -459,20 +475,33 @@ function Klienci({ klienci, setKlienci, t }: any) {
       )}
       {klienci.length === 0 ? <div className="card empty">{t.noClients}</div> :
         <div className="table-wrap"><table className="table"><thead><tr><th>{t.name}</th><th>{t.email}</th><th>{t.phone}</th><th>{t.added}</th><th></th></tr></thead><tbody>
-          {klienci.map((k: any) => <tr key={k.id}><td><strong>{k.nazwa}</strong></td><td className="mono">{k.email || "—"}</td><td className="mono">{k.telefon || "—"}</td><td className="mono text-muted">{k.data}</td><td><button className="btn-ghost" style={{ color: "#ff6b6b" }} onClick={() => setKlienci(klienci.filter((x: any) => x.id !== k.id))}>{t.delete}</button></td></tr>)}
+          {klienci.map((k: any) => <tr key={k.id}><td><strong>{k.nazwa}</strong></td><td className="mono">{k.email || "—"}</td><td className="mono">{k.telefon || "—"}</td><td className="mono text-muted">{k.data}</td><td><button className="btn-ghost" style={{ color: "#ff6b6b" }} onClick={() => remove(k.id)}>{t.delete}</button></td></tr>)}
         </tbody></table></div>}
     </div>
   );
 }
 
-function Projekty({ projekty, setProjekty, klienci, t }: any) {
+function Projekty({ projekty, setProjekty, klienci, user, t }: any) {
   const [form, setForm] = useState({ nazwa: "", klient: "", deadline: "", budzet: "", status: "w toku", opis: "" });
   const [show, setShow] = useState(false);
-  function add() {
+
+  async function add() {
     if (!form.nazwa.trim()) return;
-    setProjekty([...projekty, { ...form, id: uid(), data: today() }]);
+    const { data, error } = await supabase.from("projekty").insert({ ...form, user_id: user.id, data: today() }).select().single();
+    if (!error && data) setProjekty([data, ...projekty]);
     setForm({ nazwa: "", klient: "", deadline: "", budzet: "", status: "w toku", opis: "" }); setShow(false);
   }
+
+  async function changeStatus(id: string, status: string) {
+    await supabase.from("projekty").update({ status }).eq("id", id);
+    setProjekty(projekty.map((p: any) => p.id === id ? { ...p, status } : p));
+  }
+
+  async function remove(id: string) {
+    await supabase.from("projekty").delete().eq("id", id);
+    setProjekty(projekty.filter((p: any) => p.id !== id));
+  }
+
   return (
     <div className="page">
       <div className="page-header"><h1 className="page-title">{t.projects}</h1><button className="btn-primary" onClick={() => setShow(!show)}>{show ? t.cancel : t.newProject}</button></div>
@@ -495,7 +524,7 @@ function Projekty({ projekty, setProjekty, klienci, t }: any) {
             <div key={p.id} className="project-card">
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
                 <div><div style={{ fontWeight: 600, fontSize: 15 }}>{p.nazwa}</div>{p.klient && <div className="mono text-muted" style={{ fontSize: 12 }}>{p.klient}</div>}</div>
-                <select className="inp" style={{ width: "auto", fontSize: 12, padding: "4px 8px" }} value={p.status} onChange={e => setProjekty(projekty.map((x: any) => x.id === p.id ? { ...x, status: e.target.value } : x))}>
+                <select className="inp" style={{ width: "auto", fontSize: 12, padding: "4px 8px" }} value={p.status} onChange={e => changeStatus(p.id, e.target.value)}>
                   <option value="w toku">{t.inProgress}</option>
                   <option value="wstrzymany">{t.paused}</option>
                   <option value="zakończony">{t.finished}</option>
@@ -506,7 +535,7 @@ function Projekty({ projekty, setProjekty, klienci, t }: any) {
                 {p.deadline && <span className={`mono ${isOverdue ? "text-red" : "text-muted"}`}>{isOverdue ? t.overdue : t.deadline + ":"} {p.deadline}</span>}
               </div>
               {p.opis && <div className="text-muted" style={{ fontSize: 13, marginTop: 8 }}>{p.opis}</div>}
-              <button className="btn-ghost" style={{ color: "#ff6b6b", marginTop: 8, fontSize: 12 }} onClick={() => setProjekty(projekty.filter((x: any) => x.id !== p.id))}>{t.delete}</button>
+              <button className="btn-ghost" style={{ color: "#ff6b6b", marginTop: 8, fontSize: 12 }} onClick={() => remove(p.id)}>{t.delete}</button>
             </div>
           );
         })}</div>}
@@ -514,14 +543,29 @@ function Projekty({ projekty, setProjekty, klienci, t }: any) {
   );
 }
 
-function Faktury({ faktury, setFaktury, klienci, projekty, t }: any) {
+function Faktury({ faktury, setFaktury, klienci, projekty, user, t }: any) {
   const [form, setForm] = useState({ numer: "", klient: "", projekt: "", kwota: "", termin: "", status: "szkic", opis: "" });
   const [show, setShow] = useState(false);
+
   function nextNum() { const y = new Date().getFullYear(); const n = faktury.filter((f: any) => f.numer?.startsWith(`FV/${y}/`)).length + 1; return `FV/${y}/${String(n).padStart(3, "0")}`; }
-  function add() {
+
+  async function add() {
     if (!form.numer || !form.kwota) return;
-    setFaktury([...faktury, { ...form, id: uid(), data: today() }]); setShow(false);
+    const { data, error } = await supabase.from("faktury").insert({ ...form, user_id: user.id, data: today() }).select().single();
+    if (!error && data) setFaktury([data, ...faktury]);
+    setShow(false);
   }
+
+  async function changeStatus(id: string, status: string) {
+    await supabase.from("faktury").update({ status }).eq("id", id);
+    setFaktury(faktury.map((f: any) => f.id === id ? { ...f, status } : f));
+  }
+
+  async function remove(id: string) {
+    await supabase.from("faktury").delete().eq("id", id);
+    setFaktury(faktury.filter((f: any) => f.id !== id));
+  }
+
   return (
     <div className="page">
       <div className="page-header"><h1 className="page-title">{t.invoices}</h1><button className="btn-primary" onClick={show ? () => setShow(false) : () => { setForm({ numer: nextNum(), klient: "", projekt: "", kwota: "", termin: "", status: "szkic", opis: "" }); setShow(true); }}>{show ? t.cancel : t.newInvoice}</button></div>
@@ -541,10 +585,10 @@ function Faktury({ faktury, setFaktury, klienci, projekty, t }: any) {
       {faktury.length === 0 ? <div className="card empty">{t.noInvoices}</div> :
         <div className="table-wrap"><table className="table"><thead><tr><th>{t.invoiceNumber}</th><th>{t.client}</th><th>{t.amount}</th><th>{t.paymentDeadline}</th><th>{t.status}</th><th></th></tr></thead><tbody>
           {faktury.map((f: any) => <tr key={f.id}><td className="mono">{f.numer}</td><td>{f.klient || "—"}</td><td className="mono"><strong>{fmt(f.kwota)}</strong></td><td className="mono text-muted">{f.termin || "—"}</td>
-            <td><select className="inp" style={{ width: "auto", fontSize: 12, padding: "4px 8px" }} value={f.status} onChange={e => setFaktury(faktury.map((x: any) => x.id === f.id ? { ...x, status: e.target.value } : x))}>
+            <td><select className="inp" style={{ width: "auto", fontSize: 12, padding: "4px 8px" }} value={f.status} onChange={e => changeStatus(f.id, e.target.value)}>
               <option value="szkic">{t.draft}</option><option value="wyslana">{t.sent}</option><option value="oplacona">{t.paid}</option>
             </select></td>
-            <td><button className="btn-ghost" style={{ color: "#ff6b6b" }} onClick={() => setFaktury(faktury.filter((x: any) => x.id !== f.id))}>{t.delete}</button></td></tr>)}
+            <td><button className="btn-ghost" style={{ color: "#ff6b6b" }} onClick={() => remove(f.id)}>{t.delete}</button></td></tr>)}
         </tbody></table></div>}
     </div>
   );
@@ -560,14 +604,14 @@ function Field({ label, children }: any) {
 const cssBase = `
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 .app { display: flex; min-height: 100vh; font-family: 'Syne', sans-serif; }
-.sidebar { width: 220px; min-width: 220px; display: flex; flex-direction: column; padding: 1.5rem 0; position: sticky; top: 0; height: 100vh; }
+.sidebar { width: 220px; min-width: 220px; display: flex; flex-direction: column; padding: 1.5rem 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
 .sidebar-logo { font-size: 13px; font-weight: 800; letter-spacing: -0.5px; padding: 0 1.25rem 1.5rem; border-bottom: 1px solid; margin-bottom: 1rem; }
 .sidebar-logo span { color: #c8f55a; }
 .nav { display: flex; flex-direction: column; gap: 2px; padding: 0 0.5rem; flex: 1; }
 .nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 8px; border: none; background: none; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; text-align: left; transition: all 0.15s; }
 .nav-item.active { color: #c8f55a !important; background: rgba(200,245,90,0.08) !important; }
 .nav-icon { display: flex; align-items: center; opacity: 0.8; }
-.sidebar-foot { padding: 1rem 1.25rem 0; border-top: 1px solid; display: flex; flex-direction: column; gap: 6px; }
+.sidebar-foot { padding: 1rem 1.25rem 0; border-top: 1px solid; display: flex; flex-direction: column; gap: 4px; }
 .content { flex: 1; overflow-y: auto; }
 .page { padding: 2rem 2.5rem; max-width: 100%; }
 .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem; }
@@ -583,7 +627,7 @@ const cssBase = `
 .list-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid; font-size: 14px; }
 .list-row:last-child { border-bottom: none; }
 .empty { font-size: 13px; font-family: 'DM Mono', monospace; padding: 1rem 0; }
-.badge { font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+.badge { font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 500; text-transform: uppercase; }
 .badge-green { background: rgba(200,245,90,0.12); color: #c8f55a; }
 .badge-yellow { background: rgba(245,166,35,0.12); color: #f5a623; }
 .badge-gray { background: rgba(100,100,100,0.15); color: #666; }
