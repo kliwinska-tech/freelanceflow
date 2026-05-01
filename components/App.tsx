@@ -30,14 +30,6 @@ const icons = {
   faktury: <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
 };
 
-const TABS = [
-  { id: "dashboard", label: "Pulpit", icon: icons.dashboard },
-  { id: "oferta", label: "Generator ofert", icon: icons.oferta },
-  { id: "klienci", label: "Klienci", icon: icons.klienci },
-  { id: "projekty", label: "Projekty", icon: icons.projekty },
-  { id: "faktury", label: "Faktury", icon: icons.faktury },
-];
-
 export default function App() {
   const [tab, setTab] = useState("dashboard");
   const [user, setUser] = useState<any>(null);
@@ -54,6 +46,13 @@ useEffect(() => {
   const [darkMode, setDarkMode] = useState(true);
   const [lang, setLang] = useLocalState("fp_lang", "pl");
   const t = translations[lang as Lang];
+  const TABS = [
+  { id: "dashboard", label: t.dashboard, icon: icons.dashboard },
+  { id: "oferta", label: t.offerGenerator, icon: icons.oferta },
+  { id: "klienci", label: t.clients, icon: icons.klienci },
+  { id: "projekty", label: t.projects, icon: icons.projekty },
+  { id: "faktury", label: t.invoices, icon: icons.faktury },
+];
   const [klienci, setKlienci] = useLocalState("fp_klienci", []);
   const [projekty, setProjekty] = useLocalState("fp_projekty", []);
   const [faktury, setFaktury] = useLocalState("fp_faktury", []);
@@ -77,7 +76,27 @@ useEffect(() => {
           <button className="btn-ghost" style={{ margin: "0 0.5rem 1rem", width: "calc(100% - 1rem)" }} onClick={() => setDarkMode(!darkMode)}>
           { darkMode ? "☀️ Jasny tryb" : "🌙 Ciemny tryb"}
           </button>
-          <div className="sidebar-foot"><div className="mono" style={{ color: "#444", fontSize: 11 }}>v1.0 · beta</div></div>
+          <div className="sidebar-foot">
+  <select className="inp" style={{ fontSize: 12, marginBottom: 8 }} value={lang} onChange={e => setLang(e.target.value)}>
+    <option value="pl">🇵🇱 Polski</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="de">🇩🇪 Deutsch</option>
+    <option value="fr">🇫🇷 Français</option>
+    <option value="es">🇪🇸 Español</option>
+    <option value="pt">🇵🇹 Português</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="nl">🇳🇱 Nederlands</option>
+    <option value="ru">🇷🇺 Русский</option>
+    <option value="uk">🇺🇦 Українська</option>
+  </select>
+  <button className="btn-ghost" style={{ width: "100%", marginBottom: 8 }} onClick={() => setDarkMode(!darkMode)}>
+    {darkMode ? "☀️ " + t.lightMode : "🌙 " + t.darkMode}
+  </button>
+  <button className="btn-ghost" style={{ width: "100%", color: "#ff6b6b" }} onClick={() => supabase.auth.signOut()}>
+    {t.logout}
+  </button>
+  <div className="mono" style={{ color: "#444", fontSize: 11, marginTop: 8 }}>v1.0 · beta</div>
+</div>
         </aside>
         <main className="content">
           {tab === "dashboard" && <Dashboard klienci={klienci} projekty={projekty} faktury={faktury} />}
